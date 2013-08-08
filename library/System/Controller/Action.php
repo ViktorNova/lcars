@@ -83,7 +83,7 @@ class Action extends \System\Controller\Rest
                             preg_replace(
                                 '/\\\\' . $this->_modulePath . '\\\/', '',
                                 $this->_module->getNamespace() . '/'
-                                    . $this->_controllerName)));
+                                    . $this->_route->getController(true))));
             }
 
             $controller->$action($this->_params);

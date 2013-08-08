@@ -68,9 +68,10 @@ class Route
     }
 
     /**
+     * @param boolean $withHyphen
      * @return string
      */
-    public function getController()
+    public function getController($withHyphen = false)
     {
         $route = $this->get();
         /*
@@ -80,7 +81,9 @@ class Route
         /*
          * return controller parameter
          */
-        return $this->_getParameterName((string) array_shift($route['path']));
+        return $this
+            ->_getParameterName((string) array_shift($route['path']),
+                $withHyphen);
     }
 
     /**
